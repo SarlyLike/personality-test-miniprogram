@@ -6,14 +6,7 @@
       wx:for="{{particles}}" 
       wx:key="id"
       class="particle"
-      style="
-        left: {{item.x}}%; 
-        top: {{item.y}}%; 
-        width: {{item.size}}rpx; 
-        height: {{item.size}}rpx;
-        animation-delay: {{item.delay}}s;
-        animation-duration: {{item.duration}}s;
-      "
+      style="left: {{item.x}}%; top: {{item.y}}%; width: {{item.size}}rpx; height: {{item.size}}rpx; animation-delay: {{item.delay}}s; animation-duration: {{item.duration}}s;"
     ></view>
   </view>
 

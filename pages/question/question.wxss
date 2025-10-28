@@ -209,19 +209,19 @@
 }
 
 .answers-container {
-  width: 80%;
-  max-width: 600rpx;
+  width: 85%;
+  max-width: 680rpx;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24rpx;
+  gap: 20rpx;
 }
 
 .answer-option {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20rpx;
-  padding: 32rpx 24rpx;
-  min-height: 120rpx;
+  padding: 40rpx 28rpx;
+  min-height: 140rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,33 +252,34 @@
 }
 
 .answer-label {
-  width: 56rpx;
-  height: 56rpx;
+  width: 64rpx;
+  height: 64rpx;
   background: #667eea;
   color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-weight: 700;
-  margin-bottom: 20rpx;
-  box-shadow: 0 2rpx 8rpx rgba(102, 126, 234, 0.3);
+  margin-bottom: 24rpx;
+  box-shadow: 0 3rpx 12rpx rgba(102, 126, 234, 0.4);
 }
 
 .answer-option.selected .answer-label {
   background: white;
   color: #667eea;
-  box-shadow: 0 2rpx 8rpx rgba(255, 255, 255, 0.3);
+  box-shadow: 0 3rpx 12rpx rgba(255, 255, 255, 0.4);
 }
 
 .answer-text {
-  font-size: 28rpx;
+  font-size: 30rpx;
   line-height: 1.5;
   font-weight: 500;
   color: #2d3748;
   text-align: center;
   word-break: break-all;
+  max-width: 100%;
 }
 
 .answer-option.selected .answer-text {

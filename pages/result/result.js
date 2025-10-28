@@ -8,7 +8,8 @@ Page({
     matrixData: {},
     animationClass: '',
     showChart: false,
-    shareImageUrl: ''
+    shareImageUrl: '',
+    currentPage: 0
   },
 
   onLoad(options) {
@@ -61,6 +62,28 @@ Page({
     this.setData({
       shareImageUrl: this.data.result.image
     })
+  },
+
+  /**
+   * 页面切换事件
+   */
+  onPageChange(e) {
+    const { current } = e.detail
+    this.setData({
+      currentPage: current
+    })
+    vibrateShort()
+  },
+
+  /**
+   * 点击指示器切换页面
+   */
+  onIndicatorTap(e) {
+    const { page } = e.currentTarget.dataset
+    this.setData({
+      currentPage: page
+    })
+    vibrateShort()
   },
 
   /**

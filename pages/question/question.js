@@ -13,7 +13,6 @@ Page({
     answers: [],
     showAnswers: false,
     loading: false,
-    submitting: false,
     animationClass: '',
     progressPercent: 0
   },
@@ -137,16 +136,14 @@ Page({
    * 选择答案
    */
   async onAnswerSelect(e) {
-    if (this.data.submitting) return
-
     const { answerId, answerKey } = e.currentTarget.dataset
     vibrateShort()
 
     // 高亮选中的答案
     this.highlightAnswer(answerKey)
 
-    // 提交答案
-    await this.submitCurrentAnswer(parseInt(answerId))
+    // 异步提交答案（不等待结果）
+    this.submitCurrentAnswer(parseInt(answerId))
 
     // 延迟切换到下一题
     setTimeout(() => {
@@ -167,8 +164,6 @@ Page({
    * 提交当前答案
    */
   async submitCurrentAnswer(answerId) {
-    this.setData({ submitting: true })
-
     try {
       const userId = getUserId()
       const submitData = {
@@ -178,7 +173,11 @@ Page({
         aid: answerId
       }
 
-      await submitAnswer(submitData)
+      // 异步提交，不等待结果，不处理失败
+      submitAnswer(submitData).catch(error => {
+        console.error('提交答案失败:', error)
+        // 静默失败，不显示错误信息
+      })
 
       // 保存答案到本地
       const newAnswers = [...this.data.answers]
@@ -192,10 +191,8 @@ Page({
       })
 
     } catch (error) {
-      console.error('提交答案失败:', error)
-      showError('提交失败，请重试')
-    } finally {
-      this.setData({ submitting: false })
+      console.error('处理答案失败:', error)
+      // 静默处理错误
     }
   },
 

@@ -2,22 +2,19 @@
 <view class="question-container {{animationClass}}">
   <!-- 顶部进度区域 -->
   <view class="progress-section">
-    <view class="progress-header">
-      <button class="exit-btn" bindtap="onExitConfirm">
-        <text class="exit-icon">✕</text>
-      </button>
-      <view class="progress-info">
-        <text class="progress-text">{{currentIndex + 1}}/{{totalQuestions}}</text>
-      </view>
-      <view class="placeholder"></view>
-    </view>
+    <button class="exit-btn" bindtap="onExitConfirm">
+      <text class="exit-icon">×</text>
+    </button>
     
     <view class="progress-bar-container">
       <view class="progress-bar">
         <view 
           class="progress-fill" 
           style="width: {{progressPercent}}%"
-        ></view>
+        >
+          <text class="current-question">{{currentIndex + 1}}</text>
+        </view>
+        <text class="total-questions">{{totalQuestions}}</text>
       </view>
     </view>
   </view>
@@ -38,7 +35,7 @@
         <image 
           class="question-image" 
           src="{{currentQuestion.image}}" 
-          mode="aspectFill"
+          mode="aspectFit"
         />
         
         <!-- 图片遮罩和提示 -->
@@ -96,11 +93,5 @@
     </view>
   </view>
 
-  <!-- 提交状态遮罩 -->
-  <view wx:if="{{submitting}}" class="submitting-overlay">
-    <view class="submitting-content">
-      <view class="submitting-spinner"></view>
-      <text>提交中...</text>
-    </view>
-  </view>
+
 </view>

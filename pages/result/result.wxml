@@ -28,7 +28,7 @@
         <image 
           class="role-image" 
           src="{{result.image}}" 
-          mode="aspectFill"
+          mode="aspectFit"
         />
         <view class="image-overlay">
           <view class="overlay-icon">🔍</view>

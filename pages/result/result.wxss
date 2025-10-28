@@ -120,12 +120,13 @@
 .role-image-container {
   position: relative;
   width: 300rpx;
-  height: 300rpx;
+  height: 400rpx;
   margin: 0 auto 32rpx;
-  border-radius: 50%;
+  border-radius: 24rpx;
   overflow: hidden;
   box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .role-image-container:active {

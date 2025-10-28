@@ -187,28 +187,34 @@
           <view class="secondary-actions">
             <button class="action-card" bindtap="onSaveImage">
               <view class="action-icon">💾</view>
-              <text class="action-title">保存图片</text>
-              <text class="action-desc">保存到相册</text>
+              <view class="action-text">
+                <text class="action-title">保存图片</text>
+                <text class="action-desc">保存到相册</text>
+              </view>
             </button>
             
             <button class="action-card" bindtap="onRetakeTest">
               <view class="action-icon">🔄</view>
-              <text class="action-title">重新测试</text>
-              <text class="action-desc">再试一次</text>
+              <view class="action-text">
+                <text class="action-title">重新测试</text>
+                <text class="action-desc">再试一次</text>
+              </view>
             </button>
             
             <button class="action-card" bindtap="onViewOtherTests">
               <view class="action-icon">🎯</view>
-              <text class="action-title">更多测试</text>
-              <text class="action-desc">探索其他</text>
+              <view class="action-text">
+                <text class="action-title">更多测试</text>
+                <text class="action-desc">探索其他</text>
+              </view>
             </button>
           </view>
         </view>
 
         <!-- 底部提示 -->
         <view class="bottom-tips">
-          <text class="tip-text">✨ 测试结果仅供娱乐参考</text>
-          <text class="tip-text">🎭 每个人都有独特的魅力</text>
+          <text class="tip-item">🌟 每个人都有独特的人格魅力</text>
+          <text class="tip-item">🎯 测试结果仅供娱乐参考</text>
         </view>
       </view>
     </swiper-item>

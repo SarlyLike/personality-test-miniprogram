@@ -30,6 +30,11 @@
   <!-- 题目内容区域 -->
   <view wx:else class="question-section">
     <view class="question-content">
+      <!-- 题目文本 -->
+      <view class="question-text-container">
+        <text class="question-text">{{currentQuestion.q}}</text>
+      </view>
+
       <!-- 题目图片 -->
       <view class="question-image-container" bindtap="onQuestionImageTap">
         <image 
@@ -69,14 +74,9 @@
         </view>
       </view>
 
-      <!-- 题目文本 -->
-      <view class="question-text-container">
-        <text class="question-text">{{currentQuestion.q}}</text>
-      </view>
-
       <!-- 提示文本 -->
       <view wx:if="{{!showAnswers}}" class="question-hint">
-        <text class="hint-text">💡 点击上方图片查看选项</text>
+        <text class="hint-text">💡 点击下方图片查看选项</text>
       </view>
     </view>
   </view>

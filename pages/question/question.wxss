@@ -209,27 +209,30 @@
 }
 
 .answers-container {
-  width: 90%;
-  max-width: 500rpx;
+  width: 80%;
+  max-width: 600rpx;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
+  gap: 24rpx;
 }
 
 .answer-option {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-radius: 16rpx;
-  padding: 24rpx;
+  border-radius: 20rpx;
+  padding: 32rpx 24rpx;
+  min-height: 120rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   animation: scaleIn 0.3s ease-out;
   animation-fill-mode: both;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
 }
 
 .answer-option:nth-child(1) { animation-delay: 0.1s; }
@@ -249,33 +252,38 @@
 }
 
 .answer-label {
-  width: 48rpx;
-  height: 48rpx;
+  width: 56rpx;
+  height: 56rpx;
   background: #667eea;
   color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24rpx;
-  font-weight: 600;
-  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(102, 126, 234, 0.3);
 }
 
 .answer-option.selected .answer-label {
   background: white;
   color: #667eea;
+  box-shadow: 0 2rpx 8rpx rgba(255, 255, 255, 0.3);
 }
 
 .answer-text {
-  font-size: 26rpx;
-  line-height: 1.4;
+  font-size: 28rpx;
+  line-height: 1.5;
   font-weight: 500;
   color: #2d3748;
+  text-align: center;
+  word-break: break-all;
 }
 
 .answer-option.selected .answer-text {
   color: white;
+  font-weight: 600;
 }
 
 /* 选中效果 */
@@ -303,19 +311,21 @@
 /* 题目文本 */
 .question-text-container {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20rpx;
-  padding: 32rpx;
-  margin-bottom: 24rpx;
-  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 24rpx;
+  padding: 40rpx 32rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
 }
 
 .question-text {
-  font-size: 32rpx;
-  font-weight: 600;
+  font-size: 34rpx;
+  font-weight: 700;
   color: #2d3748;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: center;
+  text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.1);
 }
 
 /* 提示文本 */

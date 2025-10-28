@@ -1,0 +1,72 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container {{animationClass}}">
+  <!-- 背景装饰 -->
+  <view class="bg-decoration">
+    <view class="particle particle1"></view>
+    <view class="particle particle2"></view>
+    <view class="particle particle3"></view>
+    <view class="particle particle4"></view>
+    <view class="particle particle5"></view>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="login-content">
+    <!-- Logo区域 -->
+    <view class="logo-section">
+      <view class="logo-icon">🎭</view>
+      <text class="logo-title">趣味人格测试</text>
+      <text class="logo-subtitle">发现真实的自己</text>
+    </view>
+
+    <!-- 登录卡片 -->
+    <view class="login-card card">
+      <view class="welcome-text">
+        <text class="welcome-title">欢迎来到神秘的人格世界</text>
+        <text class="welcome-desc">通过有趣的测试，探索你内心深处的真实性格</text>
+      </view>
+
+      <!-- 登录按钮 -->
+      <view class="login-buttons">
+        <button 
+          class="login-btn btn btn-large {{loading ? 'loading' : ''}}" 
+          open-type="getUserProfile"
+          bindgetuserinfo="getUserProfile"
+          disabled="{{loading}}"
+        >
+          <view wx:if="{{loading}}" class="btn-loading">
+            <view class="loading-spinner"></view>
+            <text>登录中...</text>
+          </view>
+          <view wx:else class="btn-content">
+            <text class="btn-icon">✨</text>
+            <text>微信授权登录</text>
+          </view>
+        </button>
+
+        <button 
+          class="quick-login-btn" 
+          bindtap="quickLogin"
+          disabled="{{loading}}"
+        >
+          <text>快速体验</text>
+        </button>
+      </view>
+
+      <!-- 提示文本 -->
+      <view class="login-tips">
+        <text class="tip-text">🔒 我们承诺保护您的隐私安全</text>
+        <text class="tip-text">🎯 仅用于个性化测试体验</text>
+      </view>
+    </view>
+
+    <!-- 底部装饰 -->
+    <view class="bottom-decoration">
+      <text class="decoration-text">开启你的人格探索之旅</text>
+      <view class="decoration-dots">
+        <view class="dot"></view>
+        <view class="dot"></view>
+        <view class="dot"></view>
+      </view>
+    </view>
+  </view>
+</view>

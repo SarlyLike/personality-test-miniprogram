@@ -1,0 +1,12 @@
+<!-- components/progress-bar/progress-bar.wxml -->
+<view class="progress-container">
+  <view wx:if="{{showText}}" class="progress-text">
+    {{current}}/{{total}}
+  </view>
+  <view class="progress-bar" style="height: {{height}}">
+    <view 
+      class="progress-fill" 
+      style="width: {{(current/total)*100}}%; background: {{color}}; height: {{height}}"
+    ></view>
+  </view>
+</view>

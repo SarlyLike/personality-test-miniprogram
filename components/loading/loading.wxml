@@ -1,0 +1,23 @@
+<!-- components/loading/loading.wxml -->
+<view class="loading-container" wx:if="{{show}}">
+  <view class="loading-content">
+    <!-- 旋转加载器 -->
+    <view wx:if="{{type === 'spinner'}}" class="spinner"></view>
+    
+    <!-- 点点加载器 -->
+    <view wx:elif="{{type === 'dots'}}" class="dots">
+      <view class="dot dot1"></view>
+      <view class="dot dot2"></view>
+      <view class="dot dot3"></view>
+    </view>
+    
+    <!-- 脉冲加载器 -->
+    <view wx:elif="{{type === 'pulse'}}" class="pulse">
+      <view class="pulse-ring"></view>
+      <view class="pulse-ring"></view>
+      <view class="pulse-ring"></view>
+    </view>
+    
+    <text class="loading-text">{{text}}</text>
+  </view>
+</view>

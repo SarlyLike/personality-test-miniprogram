@@ -1,0 +1,106 @@
+<!-- pages/question/question.wxml -->
+<view class="question-container {{animationClass}}">
+  <!-- 顶部进度区域 -->
+  <view class="progress-section">
+    <view class="progress-header">
+      <button class="exit-btn" bindtap="onExitConfirm">
+        <text class="exit-icon">✕</text>
+      </button>
+      <view class="progress-info">
+        <text class="progress-text">{{currentIndex + 1}}/{{totalQuestions}}</text>
+      </view>
+      <view class="placeholder"></view>
+    </view>
+    
+    <view class="progress-bar-container">
+      <view class="progress-bar">
+        <view 
+          class="progress-fill" 
+          style="width: {{progressPercent}}%"
+        ></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-section">
+    <view class="loading-content">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">正在加载题目...</text>
+    </view>
+  </view>
+
+  <!-- 题目内容区域 -->
+  <view wx:else class="question-section">
+    <view class="question-content">
+      <!-- 题目图片 -->
+      <view class="question-image-container" bindtap="onQuestionImageTap">
+        <image 
+          class="question-image" 
+          src="{{currentQuestion.image}}" 
+          mode="aspectFill"
+        />
+        
+        <!-- 图片遮罩和提示 -->
+        <view class="image-overlay {{showAnswers ? 'show' : ''}}">
+          <view wx:if="{{!showAnswers}}" class="tap-hint">
+            <view class="hint-icon">👆</view>
+            <text class="hint-text">点击图片进行抉择</text>
+          </view>
+        </view>
+
+        <!-- 答案选项浮层 -->
+        <view wx:if="{{showAnswers}}" class="answers-overlay">
+          <view class="answers-container">
+            <view 
+              wx:for="{{['A', 'B', 'C', 'D']}}" 
+              wx:key="*this"
+              class="answer-option {{selectedAnswer === item ? 'selected' : ''}}"
+              data-answer-id="{{currentQuestion.answerVOMap[item].id}}"
+              data-answer-key="{{item}}"
+              bindtap="onAnswerSelect"
+            >
+              <view class="answer-label">{{item}}</view>
+              <text class="answer-text">{{currentQuestion.answerVOMap[item].a}}</text>
+              
+              <!-- 选中效果 -->
+              <view wx:if="{{selectedAnswer === item}}" class="selected-effect">
+                <view class="ripple"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 题目文本 -->
+      <view class="question-text-container">
+        <text class="question-text">{{currentQuestion.q}}</text>
+      </view>
+
+      <!-- 提示文本 -->
+      <view wx:if="{{!showAnswers}}" class="question-hint">
+        <text class="hint-text">💡 点击上方图片查看选项</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部装饰 -->
+  <view class="bottom-decoration">
+    <view class="decoration-line"></view>
+    <view class="decoration-dots">
+      <view 
+        wx:for="{{totalQuestions}}" 
+        wx:key="index"
+        class="dot {{index <= currentIndex ? 'active' : ''}}"
+      ></view>
+    </view>
+  </view>
+
+  <!-- 提交状态遮罩 -->
+  <view wx:if="{{submitting}}" class="submitting-overlay">
+    <view class="submitting-content">
+      <view class="submitting-spinner"></view>
+      <text>提交中...</text>
+    </view>
+  </view>
+</view>

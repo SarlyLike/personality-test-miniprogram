@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "chart": "../../components/chart/chart"
+  },
+  "navigationBarTitleText": "测试结果",
+  "navigationStyle": "custom"
+}

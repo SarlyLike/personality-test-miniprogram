@@ -1,0 +1,446 @@
+/* pages/result/result.wxss */
+.result-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+/* 头部装饰 */
+.header-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.decoration-particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.particle1 {
+  width: 60rpx;
+  height: 60rpx;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.particle2 {
+  width: 40rpx;
+  height: 40rpx;
+  top: 20%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.particle3 {
+  width: 80rpx;
+  height: 80rpx;
+  bottom: 30%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.particle4 {
+  width: 30rpx;
+  height: 30rpx;
+  top: 60%;
+  right: 10%;
+  animation-delay: 6s;
+}
+
+/* 滚动内容 */
+.content-scroll {
+  height: 100vh;
+  padding: 60rpx 40rpx 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+/* 角色卡片 */
+.role-card {
+  margin-bottom: 32rpx;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.role-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.role-header {
+  margin-bottom: 32rpx;
+}
+
+.role-title {
+  display: block;
+  font-size: 28rpx;
+  color: #718096;
+  margin-bottom: 16rpx;
+}
+
+.role-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.role-name {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #2d3748;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.role-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+}
+
+/* 角色形象 */
+.role-image-container {
+  position: relative;
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto 32rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.role-image-container:active {
+  transform: scale(0.95);
+}
+
+.role-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.role-image-container:active .image-overlay {
+  opacity: 1;
+}
+
+.overlay-icon {
+  font-size: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.overlay-text {
+  font-size: 24rpx;
+  color: white;
+}
+
+/* 角色座右铭 */
+.role-sentence-container {
+  position: relative;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 20rpx;
+  padding: 32rpx;
+  border-left: 6rpx solid #667eea;
+  transition: transform 0.3s ease;
+}
+
+.role-sentence-container:active {
+  transform: scale(0.98);
+}
+
+.quote-icon {
+  font-size: 32rpx;
+  margin-bottom: 16rpx;
+}
+
+.role-sentence {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #2d3748;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 16rpx;
+}
+
+.copy-hint {
+  text-align: center;
+}
+
+.hint-text {
+  font-size: 24rpx;
+  color: #a0aec0;
+}
+
+/* 描述卡片 */
+.description-card {
+  margin-bottom: 32rpx;
+}
+
+.card-header {
+  margin-bottom: 24rpx;
+  text-align: center;
+}
+
+.card-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8rpx;
+}
+
+.card-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #718096;
+}
+
+.description-content {
+  text-align: left;
+}
+
+.description-text {
+  font-size: 30rpx;
+  color: #4a5568;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* 图表卡片 */
+.chart-card {
+  margin-bottom: 32rpx;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  margin: 32rpx 0;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 20rpx;
+  padding: 32rpx;
+}
+
+/* 维度列表 */
+.dimensions-list {
+  margin-top: 32rpx;
+}
+
+.dimension-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+  padding: 16rpx 0;
+}
+
+.dimension-info {
+  flex: 1;
+  margin-right: 24rpx;
+}
+
+.dimension-name {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 8rpx;
+}
+
+.dimension-bar {
+  width: 100%;
+  height: 8rpx;
+  background: rgba(102, 126, 234, 0.2);
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.dimension-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4rpx;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dimension-value {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #667eea;
+  min-width: 80rpx;
+  text-align: right;
+}
+
+/* 操作按钮区域 */
+.actions-section {
+  margin-bottom: 40rpx;
+}
+
+.share-btn {
+  margin-bottom: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.3);
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+
+.btn-icon {
+  font-size: 32rpx;
+}
+
+.btn-text {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.secondary-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16rpx;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2rpx solid rgba(102, 126, 234, 0.2);
+  border-radius: 16rpx;
+  padding: 24rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 24rpx;
+  color: #4a5568;
+  transition: all 0.3s ease;
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.action-icon {
+  font-size: 32rpx;
+}
+
+.action-text {
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 底部提示 */
+.bottom-tips {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.tip-text {
+  display: block;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12rpx;
+  line-height: 1.4;
+}
+
+.bottom-spacer {
+  height: 120rpx;
+}
+
+/* 浮动返回按钮 */
+.floating-home-btn {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.floating-home-btn:active {
+  transform: scale(0.9);
+}
+
+.home-icon {
+  font-size: 40rpx;
+  color: white;
+}
+
+/* 动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* 响应式适配 */
+@media (max-width: 375px) {
+  .content-scroll {
+    padding: 40rpx 32rpx 0;
+  }
+  
+  .role-name {
+    font-size: 40rpx;
+  }
+  
+  .role-image-container {
+    width: 250rpx;
+    height: 250rpx;
+  }
+  
+  .secondary-actions {
+    grid-template-columns: 1fr;
+    gap: 12rpx;
+  }
+  
+  .action-btn {
+    flex-direction: row;
+    justify-content: center;
+    padding: 20rpx;
+  }
+}

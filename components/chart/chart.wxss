@@ -1,0 +1,11 @@
+/* components/chart/chart.wxss */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.chart-canvas {
+  border-radius: 12rpx;
+}

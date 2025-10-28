@@ -1,0 +1,91 @@
+<!-- pages/home/home.wxml -->
+<view class="home-container {{animationClass}}">
+  <!-- 头部区域 -->
+  <view class="header-section">
+    <view class="header-content">
+      <text class="header-title">🎭 人格测试</text>
+      <text class="header-subtitle">探索你的内心世界</text>
+    </view>
+    <view class="header-decoration">
+      <view class="decoration-circle circle1"></view>
+      <view class="decoration-circle circle2"></view>
+      <view class="decoration-circle circle3"></view>
+    </view>
+  </view>
+
+  <!-- 测试主题列表 -->
+  <view class="content-section">
+    <!-- 加载状态 -->
+    <view wx:if="{{loading && testTitles.length === 0}}" class="loading-container">
+      <view class="loading-content">
+        <view class="loading-spinner"></view>
+        <text class="loading-text">正在加载精彩测试...</text>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:elif="{{!loading && testTitles.length === 0}}" class="empty-container">
+      <view class="empty-content">
+        <text class="empty-icon">🎪</text>
+        <text class="empty-title">暂无测试内容</text>
+        <text class="empty-desc">测试内容正在准备中，请稍后再来</text>
+        <button class="retry-btn btn" bindtap="onRetry">重新加载</button>
+      </view>
+    </view>
+
+    <!-- 测试主题卡片列表 -->
+    <view wx:else class="titles-grid">
+      <view 
+        wx:for="{{testTitles}}" 
+        wx:key="id"
+        class="title-card {{item.animated ? 'slide-up' : ''}} {{item.clicking ? 'clicking' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="onTitleTap"
+      >
+        <view class="card-image-container">
+          <image 
+            class="card-image" 
+            src="{{item.images}}" 
+            mode="aspectFill"
+            lazy-load="{{true}}"
+          />
+          <view class="card-overlay">
+            <view class="play-icon">▶</view>
+          </view>
+        </view>
+        
+        <view class="card-content">
+          <text class="card-title">{{item.name}}</text>
+          <view class="card-meta">
+            <text class="meta-item">🎯 人格测试</text>
+            <text class="meta-item">⏱️ 5-10分钟</text>
+          </view>
+          <view class="card-tags">
+            <text class="tag">趣味</text>
+            <text class="tag">心理</text>
+          </view>
+        </view>
+
+        <!-- 卡片装饰 -->
+        <view class="card-decoration">
+          <view class="decoration-dot dot1"></view>
+          <view class="decoration-dot dot2"></view>
+          <view class="decoration-dot dot3"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部提示 -->
+    <view wx:if="{{testTitles.length > 0}}" class="bottom-tip">
+      <text class="tip-text">✨ 更多精彩测试即将上线</text>
+    </view>
+  </view>
+
+  <!-- 刷新提示 -->
+  <view wx:if="{{refreshing}}" class="refresh-tip">
+    <view class="refresh-content">
+      <view class="refresh-spinner"></view>
+      <text>刷新中...</text>
+    </view>
+  </view>
+</view>

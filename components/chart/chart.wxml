@@ -1,0 +1,9 @@
+<!-- components/chart/chart.wxml -->
+<view class="chart-container">
+  <canvas 
+    id="chart-canvas"
+    type="2d"
+    class="chart-canvas"
+    style="width: {{width}}px; height: {{height}}px;"
+  ></canvas>
+</view>

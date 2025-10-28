@@ -1,0 +1,145 @@
+<!-- pages/result/result.wxml -->
+<view class="result-container {{animationClass}}">
+  <!-- 头部装饰 -->
+  <view class="header-decoration">
+    <view class="decoration-particle particle1"></view>
+    <view class="decoration-particle particle2"></view>
+    <view class="decoration-particle particle3"></view>
+    <view class="decoration-particle particle4"></view>
+  </view>
+
+  <!-- 滚动内容区域 -->
+  <scroll-view class="content-scroll" scroll-y="{{true}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <!-- 角色卡片 -->
+    <view class="role-card card">
+      <!-- 角色标题 -->
+      <view class="role-header">
+        <text class="role-title">🎭 你的专属角色</text>
+        <view class="role-name-container">
+          <text class="role-name">{{result.role}}</text>
+          <view class="role-badge">
+            <text class="badge-text">专属</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 角色形象 -->
+      <view class="role-image-container" bindtap="onRoleImageTap">
+        <image 
+          class="role-image" 
+          src="{{result.image}}" 
+          mode="aspectFill"
+        />
+        <view class="image-overlay">
+          <view class="overlay-icon">🔍</view>
+          <text class="overlay-text">点击查看大图</text>
+        </view>
+      </view>
+
+      <!-- 角色座右铭 -->
+      <view class="role-sentence-container" bindtap="onCopySentence">
+        <view class="quote-icon">💬</view>
+        <text class="role-sentence">"{{result.sentence}}"</text>
+        <view class="copy-hint">
+          <text class="hint-text">点击复制</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 角色描述 -->
+    <view class="description-card card">
+      <view class="card-header">
+        <text class="card-title">📖 角色解析</text>
+      </view>
+      <view class="description-content">
+        <text class="description-text">{{result.description}}</text>
+      </view>
+    </view>
+
+    <!-- 多维评分 -->
+    <view class="chart-card card" wx:if="{{showChart && matrixData}}">
+      <view class="card-header">
+        <text class="card-title">📊 性格维度分析</text>
+        <text class="card-subtitle">基于你的答题情况生成</text>
+      </view>
+      
+      <view class="chart-container">
+        <chart 
+          chart-data="{{matrixData}}"
+          type="radar"
+          width="{{280}}"
+          height="{{280}}"
+        />
+      </view>
+
+      <!-- 维度说明 -->
+      <view class="dimensions-list">
+        <view 
+          wx:for="{{matrixData}}" 
+          wx:for-item="value"
+          wx:for-index="key"
+          wx:key="key"
+          class="dimension-item"
+        >
+          <view class="dimension-info">
+            <text class="dimension-name">{{key}}</text>
+            <view class="dimension-bar">
+              <view 
+                class="dimension-fill" 
+                style="width: {{(value/10)*100}}%"
+              ></view>
+            </view>
+          </view>
+          <text class="dimension-value">{{value}}/10</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 操作按钮区域 -->
+    <view class="actions-section">
+      <!-- 分享按钮 -->
+      <button 
+        class="share-btn btn btn-large"
+        open-type="share"
+      >
+        <view class="btn-content">
+          <text class="btn-icon">📤</text>
+          <text class="btn-text">分享给好友</text>
+        </view>
+      </button>
+
+      <!-- 其他操作 -->
+      <view class="secondary-actions">
+        <button class="action-btn" bindtap="onSaveImage">
+          <text class="action-icon">💾</text>
+          <text class="action-text">保存图片</text>
+        </button>
+        
+        <button class="action-btn" bindtap="onRetakeTest">
+          <text class="action-icon">🔄</text>
+          <text class="action-text">重新测试</text>
+        </button>
+        
+        <button class="action-btn" bindtap="onViewOtherTests">
+          <text class="action-icon">🎯</text>
+          <text class="action-text">其他测试</text>
+        </button>
+      </view>
+    </view>
+
+    <!-- 底部提示 -->
+    <view class="bottom-tips">
+      <text class="tip-text">✨ 测试结果仅供娱乐参考</text>
+      <text class="tip-text">🎭 每个人都有独特的魅力</text>
+      <text class="tip-text">💫 继续探索更多有趣的测试</text>
+    </view>
+
+    <!-- 底部间距 -->
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- 返回首页浮动按钮 -->
+  <view class="floating-home-btn" bindtap="onBackHome">
+    <text class="home-icon">🏠</text>
+  </view>
+</view>

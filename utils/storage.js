@@ -112,6 +112,47 @@ function clearShareSource() {
   removeStorage('shareSource')
 }
 
+/**
+ * 设置角色结果缓存
+ */
+function setRoleResult(titleId, userId, roleData) {
+  const key = `role_${titleId}_${userId}`
+  const cacheData = {
+    data: roleData,
+    timestamp: Date.now()
+  }
+  setStorage(key, cacheData)
+}
+
+/**
+ * 获取角色结果缓存
+ */
+function getRoleResult(titleId, userId) {
+  const key = `role_${titleId}_${userId}`
+  const cacheData = getStorage(key)
+  if (cacheData && cacheData.data) {
+    return cacheData.data
+  }
+  return null
+}
+
+/**
+ * 清除角色结果缓存
+ */
+function clearRoleResult(titleId, userId) {
+  const key = `role_${titleId}_${userId}`
+  removeStorage(key)
+}
+
+/**
+ * 检查是否有角色结果缓存
+ */
+function hasRoleResult(titleId, userId) {
+  const key = `role_${titleId}_${userId}`
+  const cacheData = getStorage(key)
+  return cacheData && cacheData.data
+}
+
 module.exports = {
   setStorage,
   getStorage,
@@ -124,5 +165,9 @@ module.exports = {
   clearQuestionProgress,
   setShareSource,
   getShareSource,
-  clearShareSource
+  clearShareSource,
+  setRoleResult,
+  getRoleResult,
+  clearRoleResult,
+  hasRoleResult
 }

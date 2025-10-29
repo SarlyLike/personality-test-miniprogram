@@ -1,6 +1,6 @@
 // pages/home/home.js
 const { getTestTitles } = require('../../utils/api.js')
-const { getUserId } = require('../../utils/storage.js')
+const { getUserId, hasRoleResult, getRoleResult } = require('../../utils/storage.js')
 const { showLoading, hideLoading, showError, vibrateShort, debounce } = require('../../utils/util.js')
 
 Page({
@@ -107,7 +107,24 @@ Page({
     const { id } = e.currentTarget.dataset
     vibrateShort()
 
-    // 卡片点击动画
+    // 获取用户ID
+    const userId = getUserId()
+    if (!userId) {
+      showError('用户信息异常，请重新登录')
+      return
+    }
+
+    // 检查是否已有缓存结果
+    if (hasRoleResult(id, userId)) {
+      // 有缓存，直接跳转到结果页
+      const cachedResult = getRoleResult(id, userId)
+      wx.navigateTo({
+        url: `/pages/result/result?titleId=${id}&data=${encodeURIComponent(JSON.stringify(cachedResult))}`
+      })
+      return
+    }
+
+    // 无缓存，执行卡片点击动画并跳转到答题页
     const index = this.data.testTitles.findIndex(item => item.id === id)
     if (index !== -1) {
       const key = `testTitles[${index}].clicking`

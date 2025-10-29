@@ -22,16 +22,6 @@
     <!-- 生成按钮/状态 -->
     <view class="generation-section">
       <view wx:if="{{!generating}}" class="generation-button-container">
-        <button 
-          class="generate-btn btn btn-large"
-          bindtap="startGeneration"
-        >
-          <view class="btn-content">
-            <text class="btn-icon">✨</text>
-            <text class="btn-text">生成我的角色</text>
-          </view>
-        </button>
-        
         <view class="generation-hint">
           <text class="hint-text">🎭 准备好迎接惊喜了吗？</text>
         </view>

@@ -1,6 +1,6 @@
 // pages/generating/generating.js
 const { getRole } = require('../../utils/api.js')
-const { getUserId } = require('../../utils/storage.js')
+const { getUserId, setRoleResult } = require('../../utils/storage.js')
 const { showError, vibrateShort } = require('../../utils/util.js')
 
 Page({
@@ -46,6 +46,11 @@ Page({
     this.setData({
       animationClass: 'fade-in'
     })
+    
+    // 延迟自动开始生成
+    setTimeout(() => {
+      this.startGeneration()
+    }, 1500)
   },
 
   /**
@@ -148,6 +153,9 @@ Page({
       })
 
       if (result) {
+        // 保存角色结果到本地缓存
+        setRoleResult(this.data.titleId, userId, result)
+        
         // 生成完成动画
         this.setData({
           generating: false,

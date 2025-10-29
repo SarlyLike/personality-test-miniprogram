@@ -1,5 +1,6 @@
 // pages/result/result.js
 const { parseJSON, vibrateShort, showError } = require('../../utils/util.js')
+const { getUserId, clearRoleResult } = require('../../utils/storage.js')
 
 Page({
   data: {
@@ -99,6 +100,13 @@ Page({
       cancelText: '取消',
       success: (res) => {
         if (res.confirm) {
+          // 清除该主题的角色结果缓存
+          const userId = getUserId()
+          if (userId) {
+            clearRoleResult(this.data.titleId, userId)
+          }
+          
+          // 跳转到答题页
           wx.redirectTo({
             url: `/pages/question/question?titleId=${this.data.titleId}`
           })

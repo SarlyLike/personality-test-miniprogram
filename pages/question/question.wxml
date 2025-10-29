@@ -2,10 +2,6 @@
 <view class="question-container {{animationClass}}">
   <!-- 顶部进度区域 -->
   <view class="progress-section">
-    <button class="exit-btn" bindtap="onExitConfirm">
-      <text class="exit-icon">✕</text>
-    </button>
-    
     <view class="progress-bar-container">
       <view class="progress-bar">
         <view 

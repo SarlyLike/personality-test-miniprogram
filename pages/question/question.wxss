@@ -14,38 +14,9 @@
   position: relative;
 }
 
-.exit-btn {
-  position: absolute;
-  top: 20rpx;
-  left: 20rpx;
-  width: 60rpx;
-  height: 60rpx;
-  background: transparent;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36rpx;
-  color: white;
-  transition: all 0.3s ease;
-  z-index: 10;
-  padding: 0;
-  margin: 0;
-  outline: none;
-}
 
-.exit-btn::after {
-  border: none;
-}
 
-.exit-btn:active {
-  transform: scale(0.9);
-}
 
-.exit-icon {
-  font-weight: normal;
-  line-height: 1;
-}
 
 .progress-bar-container {
   width: 100%;

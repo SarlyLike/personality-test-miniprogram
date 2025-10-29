@@ -50,8 +50,8 @@ page {
   position: fixed;
   top: 60rpx;
   left: 40rpx;
-  width: 64rpx;
-  height: 64rpx;
+  width: 80rpx;
+  height: 80rpx;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20rpx);
   border: 2rpx solid rgba(255, 255, 255, 0.3);
@@ -70,7 +70,7 @@ page {
 }
 
 .global-home-icon {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: white;
 }
 

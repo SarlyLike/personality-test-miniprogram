@@ -76,7 +76,7 @@
 
       <!-- 提示文本 -->
       <view wx:if="{{!showAnswers}}" class="question-hint">
-        <text class="hint-text">💡 点击下方图片查看选项</text>
+        <text class="hint-text">💡 点击图片做出选择</text>
       </view>
     </view>
   </view>

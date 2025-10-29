@@ -6,7 +6,7 @@ const { showError, vibrateShort } = require('../../utils/util.js')
 Page({
   data: {
     titleId: null,
-    generating: false,
+    generating: true,
     animationClass: '',
     particles: [],
     progressText: '正在分析你的答案...',
@@ -46,6 +46,11 @@ Page({
     this.setData({
       animationClass: 'fade-in'
     })
+    
+    // 自动开始生成
+    setTimeout(() => {
+      this.startGeneration()
+    }, 500)
   },
 
   /**

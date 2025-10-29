@@ -87,7 +87,7 @@ Page({
   async startGeneration() {
     if (this.data.generating) return
 
-    vibrateShort()
+    // 设置生成状态和初始进度
     this.setData({ 
       generating: true,
       currentStep: 0,
@@ -186,6 +186,11 @@ Page({
    * 点击生成角色按钮
    */
   onGenerateRole() {
+    // 立即隐藏按钮，显示生成状态
+    vibrateShort()
+    this.setData({ generating: true })
+    
+    // 开始生成流程
     this.startGeneration()
   },
 

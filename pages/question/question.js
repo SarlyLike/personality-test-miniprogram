@@ -148,7 +148,7 @@ Page({
     // 延迟切换到下一题
     setTimeout(() => {
       this.nextQuestion()
-    }, 800)
+    }, 400)
   },
 
   /**

@@ -45,6 +45,35 @@ page {
   font-size: 36rpx;
 }
 
+/* 全局回主页按钮 */
+.global-home-btn {
+  position: fixed;
+  top: 60rpx;
+  left: 40rpx;
+  width: 64rpx;
+  height: 64rpx;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20rpx);
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.2);
+}
+
+.global-home-btn:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.global-home-icon {
+  font-size: 28rpx;
+  color: white;
+}
+
 /* 文本样式 */
 .title {
   font-size: 48rpx;

@@ -148,8 +148,8 @@
 /* 角色形象 */
 .role-image-container {
   position: relative;
-  width: 400rpx;
-  height: 533rpx;
+  width: 800rpx;
+  height: 1066rpx;
   margin: 40rpx auto;
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -444,6 +444,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .description-icon {
@@ -465,127 +467,75 @@
 
 .actions-section {
   flex-shrink: 0;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 32rpx;
 }
 
-/* 主要分享按钮 */
-.primary-share-btn {
-  width: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-  backdrop-filter: blur(20rpx);
-  border: 2rpx solid rgba(255, 255, 255, 0.3);
-  border-radius: 32rpx;
-  padding: 32rpx;
-  margin-bottom: 32rpx;
-  transition: all 0.3s ease;
-  box-shadow: 0 12rpx 40rpx rgba(0, 0, 0, 0.2);
-}
-
-.primary-share-btn:active {
-  transform: scale(0.98);
-  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.3);
-}
-
-.primary-share-btn .btn-content {
+/* 按钮行布局 */
+.action-row {
   display: flex;
-  align-items: center;
-  gap: 24rpx;
-}
-
-.btn-icon-container {
-  position: relative;
-  width: 80rpx;
-  height: 80rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
-.btn-icon {
-  font-size: 40rpx;
-  z-index: 1;
-}
-
-.icon-glow {
-  position: absolute;
-  top: -5rpx;
-  left: -5rpx;
-  right: -5rpx;
-  bottom: -5rpx;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
-  border-radius: 50%;
-  z-index: 0;
-  animation: iconGlow 2s ease-in-out infinite alternate;
-}
-
-.btn-text-container {
-  flex: 1;
-  text-align: left;
-}
-
-.btn-title {
-  display: block;
-  font-size: 32rpx;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 8rpx;
-  text-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.3);
-}
-
-.btn-subtitle {
-  font-size: 24rpx;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
-}
-
-/* 次要操作按钮 */
-.secondary-actions {
-  display: flex;
-  flex-direction: column;
   gap: 16rpx;
+  margin-bottom: 16rpx;
 }
 
-.action-card {
+/* 统一的按钮样式 */
+.action-btn {
+  flex: 1;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15rpx);
   border: 1rpx solid rgba(255, 255, 255, 0.2);
   border-radius: 20rpx;
-  padding: 24rpx 32rpx;
+  padding: 24rpx 16rpx;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  text-align: left;
+  text-align: center;
   transition: all 0.3s ease;
+  min-height: 120rpx;
 }
 
-.action-card:active {
+.action-btn:active {
   transform: scale(0.95);
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* 特殊按钮样式 */
+.share-btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 2rpx solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 按钮图标和文本样式 */
 .action-icon {
   font-size: 36rpx;
-  margin-right: 20rpx;
+  margin-bottom: 8rpx;
   flex-shrink: 0;
 }
 
 .action-text {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .action-title {
-  font-size: 28rpx;
+  font-size: 26rpx;
   font-weight: 600;
   color: white;
   margin-bottom: 4rpx;
+  text-align: center;
 }
 
 .action-desc {
-  font-size: 22rpx;
+  font-size: 20rpx;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 500;
+  text-align: center;
 }
+
+
 
 .bottom-tips {
   margin-top: 32rpx;

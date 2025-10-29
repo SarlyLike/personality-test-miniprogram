@@ -2,8 +2,8 @@
 <view class="question-container {{animationClass}}">
   <!-- 顶部进度区域 -->
   <view class="progress-section">
-    <button class="exit-btn" bindtap="onExitConfirm">
-      <text class="exit-icon">×</text>
+    <button class="global-home-btn" bindtap="onExitConfirm">
+      <text class="global-home-icon">🏠</text>
     </button>
     
     <view class="progress-bar-container">

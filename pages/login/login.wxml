@@ -14,7 +14,6 @@
     <!-- Logo区域 -->
     <view class="logo-section">
       <view class="logo-icon">🎭</view>
-      <text class="logo-title">趣味人格测试</text>
       <text class="logo-subtitle">发现真实的自己</text>
     </view>
 

@@ -1,0 +1,107 @@
+<!-- pages/generating/generating.wxml -->
+<view class="generating-container {{animationClass}}">
+  <!-- 背景粒子效果 -->
+  <view class="particles-container">
+    <view 
+      wx:for="{{particles}}" 
+      wx:key="id"
+      class="particle"
+      style="left: {{item.x}}%; top: {{item.y}}%; width: {{item.size}}rpx; height: {{item.size}}rpx; animation-delay: {{item.delay}}s; animation-duration: {{item.duration}}s;"
+    ></view>
+  </view>
+
+  <!-- 主要内容 -->
+  <view class="main-content">
+    <!-- 标题区域 -->
+    <view class="title-section">
+      <view class="title-icon">🔮</view>
+      <text class="title-text">神秘角色生成中</text>
+      <text class="subtitle-text">正在为你量身定制专属角色</text>
+    </view>
+
+    <!-- 生成按钮/状态 -->
+    <view class="generation-section">
+      <view wx:if="{{!generating}}" class="generation-button-container">
+        <button 
+          class="generate-btn btn btn-large"
+          bindtap="startGeneration"
+        >
+          <view class="btn-content">
+            <text class="btn-icon">✨</text>
+            <text class="btn-text">生成我的角色</text>
+          </view>
+        </button>
+        
+        <view class="generation-hint">
+          <text class="hint-text">🎭 准备好迎接惊喜了吗？</text>
+        </view>
+      </view>
+
+      <!-- 生成中状态 -->
+      <view wx:else class="generating-status">
+        <view class="generating-animation">
+          <!-- 中心魔法球 -->
+          <view class="magic-orb">
+            <view class="orb-core"></view>
+            <view class="orb-ring ring1"></view>
+            <view class="orb-ring ring2"></view>
+            <view class="orb-ring ring3"></view>
+          </view>
+
+          <!-- 环绕粒子 -->
+          <view class="orbit-particles">
+            <view class="orbit-particle particle1"></view>
+            <view class="orbit-particle particle2"></view>
+            <view class="orbit-particle particle3"></view>
+            <view class="orbit-particle particle4"></view>
+          </view>
+        </view>
+
+        <!-- 进度文本 -->
+        <view class="progress-text-container">
+          <text class="progress-text">{{progressText}}</text>
+          <view class="progress-dots">
+            <view class="dot dot1"></view>
+            <view class="dot dot2"></view>
+            <view class="dot dot3"></view>
+          </view>
+        </view>
+
+        <!-- 进度步骤指示器 -->
+        <view class="progress-steps">
+          <view 
+            wx:for="{{progressSteps}}" 
+            wx:key="index"
+            class="step {{index <= currentStep ? 'active' : ''}}"
+          ></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部提示 -->
+    <view class="bottom-section">
+      <view wx:if="{{!generating}}" class="tips-container">
+        <text class="tip-item">🌟 每个人都有独特的人格魅力</text>
+        <text class="tip-item">🎯 测试结果仅供娱乐参考</text>
+        <text class="tip-item">💫 发现更真实的自己</text>
+      </view>
+
+      <view wx:else class="generating-tips">
+        <text class="generating-tip">✨ 正在运用神秘算法分析你的性格特征</text>
+      </view>
+
+      <!-- 返回按钮 -->
+      <button wx:if="{{!generating}}" class="back-btn" bindtap="onBackHome">
+        <text>返回首页</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 装饰元素 -->
+  <view class="decoration-elements">
+    <view class="decoration-star star1">⭐</view>
+    <view class="decoration-star star2">✨</view>
+    <view class="decoration-star star3">🌟</view>
+    <view class="decoration-star star4">💫</view>
+  </view>
+</view>

@@ -3,7 +3,6 @@
   <!-- 头部区域 -->
   <view class="header-section">
     <view class="header-content">
-      <text class="header-title">🎭 人格测试</text>
       <text class="header-subtitle">探索你的内心世界</text>
     </view>
     <view class="header-decoration">

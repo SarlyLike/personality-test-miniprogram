@@ -166,34 +166,28 @@
 
         <!-- 分享操作区域 -->
         <view class="actions-section">
-          <!-- 主要分享按钮 -->
-          <button 
-            class="primary-share-btn"
-            open-type="share"
-          >
-            <view class="btn-content">
-              <view class="btn-icon-container">
-                <text class="btn-icon">🎭</text>
-                <view class="icon-glow"></view>
+          <!-- 第一行：分享和保存按钮 -->
+          <view class="action-row">
+            <button class="action-btn share-btn" open-type="share">
+              <view class="action-icon">🎭</view>
+              <view class="action-text">
+                <text class="action-title">分享我的角色</text>
+                <text class="action-desc">让朋友看看我是谁</text>
               </view>
-              <view class="btn-text-container">
-                <text class="btn-title">分享我的角色</text>
-                <text class="btn-subtitle">让朋友看看我是谁</text>
-              </view>
-            </view>
-          </button>
-
-          <!-- 次要操作按钮 -->
-          <view class="secondary-actions">
-            <button class="action-card" bindtap="onSaveImage">
+            </button>
+            
+            <button class="action-btn save-btn" bindtap="onSaveImage">
               <view class="action-icon">💾</view>
               <view class="action-text">
                 <text class="action-title">保存图片</text>
                 <text class="action-desc">保存到相册</text>
               </view>
             </button>
-            
-            <button class="action-card" bindtap="onRetakeTest">
+          </view>
+
+          <!-- 第二行：重测和更多测试按钮 -->
+          <view class="action-row">
+            <button class="action-btn retest-btn" bindtap="onRetakeTest">
               <view class="action-icon">🔄</view>
               <view class="action-text">
                 <text class="action-title">重新测试</text>
@@ -201,7 +195,7 @@
               </view>
             </button>
             
-            <button class="action-card" bindtap="onViewOtherTests">
+            <button class="action-btn more-btn" bindtap="onViewOtherTests">
               <view class="action-icon">🎯</view>
               <view class="action-text">
                 <text class="action-title">更多测试</text>

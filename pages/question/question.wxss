@@ -322,22 +322,20 @@
 
 .hint-gradient {
   background: linear-gradient(180deg, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.95) 30%, 
-    rgba(255, 255, 255, 1) 100%);
-  padding: 24rpx 40rpx 16rpx 40rpx;
-  border-radius: 50rpx;
-  backdrop-filter: blur(10rpx);
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
-  border: 1rpx solid rgba(255, 255, 255, 0.8);
+    rgba(0, 0, 0, 0) 0%, 
+    rgba(0, 0, 0, 0.1) 50%, 
+    rgba(0, 0, 0, 0.2) 100%);
+  padding: 16rpx 24rpx 12rpx 24rpx;
+  border-radius: 20rpx;
 }
 
 .hint-gradient .hint-text {
-  font-size: 26rpx;
-  color: #666;
-  font-weight: 500;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
   text-align: center;
   white-space: nowrap;
+  text-shadow: 0 1rpx 3rpx rgba(0, 0, 0, 0.3);
 }
 
 

@@ -8,7 +8,7 @@
 
 /* 顶部进度区域 */
 .progress-section {
-  padding: 60rpx 40rpx 32rpx;
+  padding: 120rpx 40rpx 32rpx;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   position: relative;

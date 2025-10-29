@@ -47,6 +47,13 @@
           </view>
         </view>
 
+        <!-- 底部选择提示 -->
+        <view wx:if="{{!showAnswers}}" class="bottom-hint">
+          <view class="hint-gradient">
+            <text class="hint-text">💡 点击图片做出选择</text>
+          </view>
+        </view>
+
         <!-- 答案选项浮层 -->
         <view wx:if="{{showAnswers}}" class="answers-overlay">
           <view class="answers-container">
@@ -69,25 +76,7 @@
           </view>
         </view>
       </view>
-
-      <!-- 提示文本 -->
-      <view wx:if="{{!showAnswers}}" class="question-hint">
-        <text class="hint-text">💡 点击图片做出选择</text>
-      </view>
     </view>
   </view>
-
-  <!-- 底部装饰 -->
-  <view class="bottom-decoration">
-    <view class="decoration-line"></view>
-    <view class="decoration-dots">
-      <view 
-        wx:for="{{totalQuestions}}" 
-        wx:key="index"
-        class="dot {{index <= currentIndex ? 'active' : ''}}"
-      ></view>
-    </view>
-  </view>
-
 
 </view>

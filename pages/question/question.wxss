@@ -307,53 +307,37 @@
   text-shadow: 0 1rpx 2rpx rgba(0, 0, 0, 0.1);
 }
 
-/* 提示文本 */
-.question-hint {
-  text-align: center;
-  padding: 16rpx;
-}
-
-.question-hint .hint-text {
-  font-size: 26rpx;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* 底部装饰 */
-.bottom-decoration {
-  padding: 32rpx 40rpx;
+/* 底部提示 */
+.bottom-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 16rpx;
+  padding: 20rpx;
+  z-index: 10;
 }
 
-.decoration-line {
-  width: 60rpx;
-  height: 4rpx;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2rpx;
+.hint-gradient {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0) 0%, 
+    rgba(255, 255, 255, 0.95) 30%, 
+    rgba(255, 255, 255, 1) 100%);
+  padding: 24rpx 40rpx 16rpx 40rpx;
+  border-radius: 50rpx;
+  backdrop-filter: blur(10rpx);
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+  border: 1rpx solid rgba(255, 255, 255, 0.8);
 }
 
-.decoration-dots {
-  display: flex;
-  gap: 8rpx;
-  max-width: 100%;
-  overflow-x: auto;
-  padding: 8rpx;
-}
-
-.dot {
-  width: 12rpx;
-  height: 12rpx;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.dot.active {
-  background: white;
-  transform: scale(1.2);
+.hint-gradient .hint-text {
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
 }
 
 

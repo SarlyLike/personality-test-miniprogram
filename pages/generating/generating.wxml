@@ -22,8 +22,15 @@
     <!-- 生成按钮/状态 -->
     <view class="generation-section">
       <view wx:if="{{!generating}}" class="generation-button-container">
+        <button class="generate-btn" bindtap="onGenerateRole">
+          <view class="btn-content">
+            <text class="btn-icon">🎭</text>
+            <text class="btn-text">生成我的角色</text>
+          </view>
+          <view class="btn-glow"></view>
+        </button>
         <view class="generation-hint">
-          <text class="hint-text">🎭 准备好迎接惊喜了吗？</text>
+          <text class="hint-text">点击按钮，揭晓你的专属角色</text>
         </view>
       </view>
 

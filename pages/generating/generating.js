@@ -46,11 +46,6 @@ Page({
     this.setData({
       animationClass: 'fade-in'
     })
-    
-    // 延迟自动开始生成
-    setTimeout(() => {
-      this.startGeneration()
-    }, 1500)
   },
 
   /**
@@ -185,6 +180,13 @@ Page({
         })
       }, 2000)
     }
+  },
+
+  /**
+   * 点击生成角色按钮
+   */
+  onGenerateRole() {
+    this.startGeneration()
   },
 
   /**

@@ -1,6 +1,6 @@
 // pages/question/question.js
-const { getQuestions, submitAnswer, getRole } = require('../../utils/api.js')
-const { getUserId, setQuestionProgress, getQuestionProgress, clearQuestionProgress, setRoleResult } = require('../../utils/storage.js')
+const { getQuestions, submitAnswer } = require('../../utils/api.js')
+const { getUserId, setQuestionProgress, getQuestionProgress, clearQuestionProgress } = require('../../utils/storage.js')
 const { showLoading, hideLoading, showError, vibrateShort, getPageParams } = require('../../utils/util.js')
 
 Page({
@@ -203,8 +203,11 @@ Page({
     const nextIndex = this.data.currentIndex + 1
 
     if (nextIndex >= this.data.totalQuestions) {
-      // 答题完成，直接获取角色结果
-      this.completeTest()
+      // 答题完成，清除进度并跳转到生成结果页
+      clearQuestionProgress(this.data.titleId)
+      wx.redirectTo({
+        url: `/pages/generating/generating?titleId=${this.data.titleId}`
+      })
       return
     }
 
@@ -264,57 +267,7 @@ Page({
     })
   },
 
-  /**
-   * 完成测试，获取角色结果
-   */
-  async completeTest() {
-    try {
-      // 清除答题进度
-      clearQuestionProgress(this.data.titleId)
-      
-      // 显示加载提示
-      showLoading('正在生成角色...')
-      
-      // 获取用户ID
-      const userId = getUserId()
-      if (!userId) {
-        hideLoading()
-        showError('用户信息异常，请重新登录')
-        return
-      }
-      
-      // 调用API获取角色结果
-      const result = await getRole({
-        titleId: this.data.titleId,
-        userId: userId
-      })
-      
-      hideLoading()
-      
-      if (result) {
-        // 保存角色结果到本地缓存
-        setRoleResult(this.data.titleId, userId, result)
-        
-        // 直接跳转到结果页
-        wx.redirectTo({
-          url: `/pages/result/result?titleId=${this.data.titleId}&data=${encodeURIComponent(JSON.stringify(result))}`
-        })
-      } else {
-        throw new Error('获取结果失败')
-      }
-    } catch (error) {
-      hideLoading()
-      console.error('获取角色结果失败:', error)
-      showError('生成角色失败，请重试')
-      
-      // 失败时跳转到生成页面作为备选方案
-      setTimeout(() => {
-        wx.redirectTo({
-          url: `/pages/generating/generating?titleId=${this.data.titleId}`
-        })
-      }, 1500)
-    }
-  },
+
 
   /**
    * 分享当前测试

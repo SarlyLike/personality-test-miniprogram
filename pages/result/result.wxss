@@ -274,6 +274,11 @@
   gap: 8rpx;
 }
 
+/* 复制提示文字使用纯白色 */
+.copy-hint .hint-text {
+  color: white;
+}
+
 .hint-icon {
   font-size: 20rpx;
 }
